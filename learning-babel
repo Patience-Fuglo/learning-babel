@@ -1,0 +1,51 @@
+learning how to transpile with babel
+
+SETUP
+Create a new folder in your working directory and name it babelProject
+Open babelProject in your text editor and terminal of choice.
+Inside babelProject, create the following:
+A file named index.html
+A folder named src
+A file inside src named index.js
+
+INDEX.JS
+Open index.js
+Inside index.js, write an arrow function named multiply with two parameters, a and b.
+const multiply = (a,b) => a \* b
+const firstNum = 2
+const secondNum = 3
+let product = multiply(firstNum, secondNum)
+console.log(`The product of ${firstNum} and ${secondNum} is ${product}`)
+
+INDEX.HTML
+Open index.html
+Add the bare minimum required to run index.js
+
+<html>
+    <body>
+        <script src="./src/index.js"></script>
+    </body>
+</html>
+
+Run the following in your terminal:
+npm install @babel/core @babel/cli @babel/preset-env
+
+CREATE A FILE NAME .babelrc
+Paste the file inside
+
+{
+"presets": ["@babel/preset-env"]
+}
+
+Run the following command in your terminal:
+npx babel src -d lib
+
+Update index.html to Include the Transpiled Code
+Open index.html.
+Change the script tag to include the index.js from lib:
+
+<html>
+    <body>
+        <script src="./lib/index.js"></script>
+    </body>
+</html>
